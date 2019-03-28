@@ -18,6 +18,28 @@ In the root folder create another config.py file with the following infos in:
 ```
 DEBUG = False
 ```
+We also need to create our requirements.txt file with the following content:
+
+```
+pip>=9.0.1
+Flask==0.12.3
+requests
+requests_cache
+plotly
+```
+
+We then create our Dockerfile as well with the following content:
+
+```
+FROM python:3.7-alpine
+WORKDIR /myapp
+COPY . /myapp
+RUN pip install -U -r requirements.txt
+EXPOSE 8080
+CMD ["python", "myminiapp.py"]
+```
+
+
 To get information about AirQuality one has to write in a web browser: http://[HOSTNAME]/airquality
 
 If we need to check another city then we need to write for example: http://[HOSTNAME]/airquality?lat=&lng= filling in lat and lng the coordinates of the city we want.
@@ -73,7 +95,8 @@ kubectl get pods -l name=cassandra
 ```
 
 And by using the name of the container we copy our data
-```kubectl cp worldcities.csv cassandra-6m799:/worldcities.csv
+```
+kubectl cp worldcities.csv cassandra-6m799:/worldcities.csv
 ```
 _Cassandra and database names may be different_
 
