@@ -22,10 +22,10 @@ We also need to create our requirements.txt file with the following content:
 
 ```
 pip>=9.0.1
-Flask==0.12.3
+Flask==0.12.2
 requests
 requests_cache
-plotly
+cassandra-driver
 ```
 
 We then create our Dockerfile as well with the following content:
