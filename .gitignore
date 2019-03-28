@@ -1,0 +1,6 @@
+#these folders will be excuded
+instance/
+__pycache__/
+
+#this file will be excuded
+config.py
