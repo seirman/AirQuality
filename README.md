@@ -2,8 +2,8 @@
 
 The first application returns the current air quality of the city of choice providing it's latitude and longitude with the dominant pollutant.
 
-For the Worldcities application we assume that a Cassandra cluster is already setup.
-The second application providing a city name returns the country that city belongs and also the population in 2019 that city has
+For the Worldcities application we assume that a Cassandra cluster is already set-up.
+The second application providing a city name returns the country that city belongs to and also the population (2019) that city has
 
 ## Setup
 
@@ -44,11 +44,11 @@ To get information about AirQuality one has to write in a web browser: http://[H
 
 If we need to check another city then we need to write for example: http://[HOSTNAME]/airquality?lat=&lng= filling in lat and lng the coordinates of the city we want.
 
-For the worldcities application we need to type: http://[HOSTNAME]/worldcities/[cityofchoice
+For the worldcities application we need to type: http://[HOSTNAME]/worldcities/[cityofchoice]
 
 ## Creating The Cluster in Kubernetes
 
-Before creating our cluster we need to se the region/zone of it. It is useful to export our project name as an environment variable. We do these by the following commands:
+Before creating our cluster we need to set the region/zone of it. It is useful to export our project name as an environment variable. We do these by the following commands:
 
 ```
 gcloud config set compute/zone europe-west2-b
@@ -57,7 +57,7 @@ export PROJECT_ID="$(gcloud config get-value project -q)"
 
 _The name of the zone/region may be different, I chose europe west_
 
-First to create the Cassandra cluster we need to:
+Create the Cassandra cluster by:
 
 ```
 gcloud container clusters create cassandra --num-nodes=3
@@ -152,17 +152,17 @@ kubectl run worldcities-app --image=gcr.io/${PROJECT_ID}/worldcities-app:v1 --po
 kubectl expose deployment worldcities-app --type=LoadBalancer --port 80 --target-port 8080
 ```
 
-Finally to get the external ip for our service we use:
+Finally to get the external IP for our service we use:
 
 ```
 kubectl get services
 ```
 
-Usually takes sometime to get the external ip. Once we have we use that followed by the name of our application. In my case was:
+Usually takes sometime to get the external IP. Once we have the IP  we use that followed by the name of our application. In my case was:
 
 ```
-35.111.180.157/worldcities
+35.230.131.104/worldcities/[Cityname]
 or
-35.111.180.157/airquality
+35.230.131.104/airquality
 ```
-_Since I have two different applications running in the cloud._
+_Since I have two different applications running in the cloud. The ip may change,also the names of the cities need to have the 1st letter in capital i.e. London_
