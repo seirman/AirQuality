@@ -7,7 +7,7 @@ The second application providing a city name returns the country that city belon
 
 ## Setup
 
-For the AirQuality application a registration for an API KEY must be made through [breezometer.com]
+For the AirQuality application a registration for an API KEY must be made through breezometer.com
 Then a folder named   instance  needs to be created, where a config.py file will be created containing our API KEY
 ```
 DEBUG = True
@@ -40,11 +40,11 @@ CMD ["python", "myminiapp.py"]
 ```
 
 
-To get information about AirQuality one has to write in a web browser: [http://[HOSTNAME]/airquality]
+To get information about AirQuality one has to write in a web browser: http://[HOSTNAME]/airquality
 
-If we need to check another city then we need to write for example: [http://[HOSTNAME]/airquality?lat=&lng=] filling in lat and lng the coordinates of the city we want.
+If we need to check another city then we need to write for example: http://[HOSTNAME]/airquality?lat=&lng= filling in lat and lng the coordinates of the city we want.
 
-For the worldcities application we need to type: [http://[HOSTNAME]/worldcities/[cityofchoice]
+For the worldcities application we need to type: http://[HOSTNAME]/worldcities/[cityofchoice
 
 ## Creating The Cluster in Kubernetes
 
